@@ -7,7 +7,7 @@
 #define DATAOFFSET 8U
 #define IMAGEOFFSET 0x60U
 #define ASSEMBLYNAMEOFFSET 0x28U
-#define PID 16504
+#define PID 12036
 
 void* readMem(void* addr, int size=8){
     void* data;
@@ -53,7 +53,7 @@ std::string readString(void* addr){
 int main(int argc, char const *argv[])
 {
     // can be known somehow (get it from PINCE)
-    void* mono_assembly_foreach = (void*)0x00007f1eb0d595f9U;
+    void* mono_assembly_foreach = (void*)0x00007ff876b565f9U;
     std::cout << mono_assembly_foreach << "\n";
 
     void* help2 = mono_assembly_foreach+ 25U;
@@ -74,7 +74,7 @@ int main(int argc, char const *argv[])
     while((GListData = readMem(GList)) != 0)
     {
         //void* GListData = readMem(GList);
-        //std::cout << GListData << "\n";
+        std::cout << GListData << "\n";
 
         void* GListDataImage = readMem(GListData) + IMAGEOFFSET;
         //std::cout << GListDataImage << "\n";
